@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raleigh Engineers Club</title>
+    <meta name="description" content="The Raleigh Engineer's Club (REC) has been in existence since 1926. The club seeks to promote the Engineering field through monthly technical meetings and support of those pursuing a future in the Engineering discipline. We award an annual scholarship to a Raleigh area graduating high school senior to enter the school of engineering at NC State. Our members have a diverse background of engineering disciplines and represent several companies and government agencies located in the Raleigh area.">
+    <meta name="keywords" content="Raleigh Engineers PDH Credits Programs Club">
+    <meta name="author" content="Bob Via">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1e40af;
+            --primary-hover: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #60a5fa;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --border-color: #e5e7eb;
+            --border-light: #f3f4f6;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .container-wide {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, #ffffff 100%);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem 0;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .logo-img {
+            width: 80px;
+            height: auto;
+            max-height: 70px;
+            object-fit: contain;
+            filter: drop-shadow(var(--shadow-sm));
+        }
+        
+        .title-section h1 {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.025em;
+        }
+        
+        .title-section .subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-weight: 400;
+        }
+        
+        .contact-info {
+            text-align: right;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+        
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        .header-logo-right {
+            width: 80px;
+            height: auto;
+            max-height: 70px;
+            object-fit: contain;
+            filter: drop-shadow(var(--shadow-sm));
+        }
+        
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, #ffffff 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(1.875rem, 5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        
+        .intro-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            text-align: left;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        .intro-text:last-of-type {
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            min-height: 48px;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-color) 100%);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            border-radius: 12px;
+        }
+        
+        /* Program Section */
+        .program-section {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+        
+        .program-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .program-header h2 {
+            font-size: clamp(1.875rem, 4vw, 2.5rem);
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+        
+        .program-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .program-date {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .program-time {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .program-content {
+            display: grid;
+            grid-template-columns: 250px 1fr 250px;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .program-image, .program-image-right {
+            position: relative;
+        }
+        
+        .program-img, .program-img-right {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .program-img:hover, .program-img-right:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .program-details {
+            text-align: center;
+        }
+        
+        .program-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.025em;
+        }
+        
+        .speaker-card {
+            background: var(--bg-accent);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-light);
+        }
+
+        .speaker-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .speaker-title {
+            color: var(--text-secondary);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        
+        .program-description {
+            text-align: left;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+
+        .program-description a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .program-description a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Announcements Section */
+        .announcements-section {
+            background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-secondary) 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            border: 1px solid var(--border-light);
+        }
+        
+        .announcements-section h2 {
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .announcement-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .announcement-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .announcement-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .announcement-item strong {
+            color: var(--primary-color);
+        }
+        
+        .announcements-section a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .announcements-section a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Membership Section */
+        .membership-section {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            align-items: center;
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+        }
+        
+        .membership-image a {
+            display: block;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .membership-image a:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .membership-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .membership-content h2 {
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .membership-content p {
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+        
+        .membership-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .membership-content a:hover {
+            text-decoration: underline;
+        }
+
+        .membership-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        /* President Section */
+        .president-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+            border: 1px solid var(--border-light);
+        }
+        
+        .president-info {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .president-info div:first-child {
+            color: var(--text-primary);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .president-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .president-img {
+            width: 120px;
+            height: auto;
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--text-primary) 0%, #374151 100%);
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+            color: white;
+        }
+        
+        .footer-logo {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .footer-img {
+            width: 100px;
+            height: auto;
+            filter: brightness(0) invert(1) opacity(0.8);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .program-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .program-image, .program-image-right {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container, .container-wide {
+                padding: 0 1rem;
+            }
+
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .contact-info {
+                text-align: center;
+            }
+
+            .hero-section, .program-section, .announcements-section, .membership-section {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .membership-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .membership-image {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+
+            .president-section {
+                flex-direction: column;
+            }
+
+            .hero-cta, .membership-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-section {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .title-section {
+                text-align: center;
+            }
+
+            .program-content {
+                gap: 1.5rem;
+            }
+
+            .hero-section, .program-section, .announcements-section, .membership-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animation and Interactions */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-section, .program-section, .announcements-section, .membership-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Focus States for Accessibility */
+        .btn:focus, a:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mt-4 { margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container-wide">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="http://www.raleighengineersclub.org/images/paste17.jpg" alt="REC Logo" class="logo-img">
+                    <div class="title-section">
+                        <h1>The Raleigh Engineers Club</h1>
+                        <div class="subtitle">The Engineers' Extra</div>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <div>P.O. Box 1268, Raleigh, NC 27602</div>
+                    <div><a href="mailto:secretary@raleighengineersclub.org">secretary@raleighengineersclub.org</a></div>
+                </div>
+                <img src="http://www.raleighengineersclub.org/images/paste18.jpg" alt="Engineering Logo" class="header-logo-right">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h2 class="hero-title">The Engineers' Extra</h2>
+                    <p class="hero-subtitle">Professional Development • Technical Innovation • Community Impact</p>
+                    
+                    <div class="intro-text">
+                        The Raleigh Engineers Club (REC) has been in existence since 1926. The club seeks to promote the Engineering field through monthly technical meetings and support of those pursuing a future in the Engineering discipline. We award an annual scholarship to a Raleigh area graduating high school senior to enter the school of engineering at NC State. Our members have a diverse background of engineering disciplines and represent several companies and government agencies located in the Raleigh area.
+                    </div>
+                    
+                    <div class="intro-text">
+                        The Raleigh Engineers Club has monthly lunch meetings that cover engineering topics of interest to all types of engineers and people interested in engineering activities regardless of discipline. The Raleigh Engineers Club is a NC Board of Registration for Engineers Certified provider of professional development hours (PDH credits) for licensed engineers. Eleven meetings are held annually with one set aside for scholarship awards and updates on successes of engineering graduates from NCSU. So ten professional development hours are provided each year. Note that you do not need to be a licensed engineer or a graduate engineer to be a member! View our <a href="http://www.raleighengineersclub.org/Constitution.pdf">Constitution</a> and <a href="http://www.raleighengineersclub.org/Bylaws.pdf">Bylaws</a>!
+                    </div>
+
+                    <div class="hero-cta">
+                        <a href="#membership" class="btn btn-primary btn-large">Join Today - $35/Year</a>
+                        <a href="mailto:secretary@raleighengineersclub.org" class="btn btn-secondary btn-large">Contact Us</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="program-section">
+                <div class="program-header">
+                    <div class="program-badge">Featured Program</div>
+                    <h2>UPCOMING EVENT</h2>
+                    <div class="program-date">August 18, 2025</div>
+                    <div class="program-time">12:00 PM - 1:00 PM</div>
+                </div>
+                
+                <div class="program-content">
+                    <div class="program-image">
+                        <img src="http://www.raleighengineersclub.org/images/paste254.jpg" alt="Grid Technology" class="program-img">
+                    </div>
+                    
+                    <div class="program-details">
+                        <div class="program-title">Grid Enhancing Technologies</div>
+                        
+                        <div class="speaker-card">
+                            <div class="speaker-name">John Gajda, PE</div>
+                            <div class="speaker-title">
+                                Professor, NC State University<br>
+                                Electrical and Computer Engineering Dept.
+                            </div>
+                        </div>
+                        
+                        <div class="program-description">
+                            John Gajda will discuss "Grid Enhancing Technologies," a term that generally refers to several different approaches that allow electric power transmission lines to carry more current than a given line design may have been rated for in the recent past. John will discuss things like advanced conductors, dynamic line ratings, and other approaches, and some of the engineering tradeoffs involved. John will also discuss related federal and state policies that encourage the use of these technologies.
+                        </div>
+                        
+                        <div class="program-description">
+                            John W. Gajda, P.E. is a Professor of the Practice at North Carolina State University in the Electrical and Computer Engineering department. He teaches power systems courses in the Master of Science in Electric Power Systems Engineering program (<a href="https://ece.ncsu.edu/grad/masters/epse/">https://ece.ncsu.edu/grad/masters/epse</a>). Before joining the ECE faculty in 2024, he worked across the energy & electric utility industry for over 30 years, and was an adjunct lecturer in the ECE department for more than 10 years. His roles have spanned industry, regulatory agencies, cooperative utilities, investor-owned utilities, consulting, solar power, federal government, and academia.
+                        </div>
+                        
+                        <div class="program-description">
+                            John's areas of expertise are distribution system protection, generator interconnections, protective relay and inverter-based resource settings management, and distribution and transmission regulatory policy. He has served on IEEE working groups related to generator interconnections, has testified multiple times before the North Carolina Utilities Commission, and has submitted an affidavit before the Federal Energy Regulatory Commission. John has developed and written multiple utility internal design standards and manuals. He is a licensed professional engineer in the states of North Carolina, South Carolina, Virginia, Tennessee, Alabama, and Texas, and is a Senior Member of IEEE.
+                        </div>
+
+                        <a href="https://www.eventbrite.com/e/1558065278189?aff=oddtdtcreator" class="btn btn-primary btn-large">Register for Event</a>
+                    </div>
+                    
+                    <div class="program-image-right">
+                        <img src="http://www.raleighengineersclub.org/images/paste255.jpg" alt="Power Grid" class="program-img-right">
+                    </div>
+                </div>
+            </section>
+
+            <section class="announcements-section">
+                <h2>Important Announcements</h2>
+                <div class="announcement-grid">
+                    <div class="announcement-item">
+                        <strong>Scholarship Donations</strong> - Each year we offer one scholarship for one semester of NCSU tuition paid to one Wake County high school graduate who is entering their Freshman year at NCSU and have been accepted into the College of Engineering. The success of our scholarship depends on your donations. If you would like to donate, you can do so through our Eventbrite or on any meeting event or anytime on our 2025 Raleigh Engineers Club Membership Dues Event.
+                    </div>
+                    <div class="announcement-item">
+                        <strong><a href="https://www.eventbrite.com/e/2025-raleigh-engineers-club-membership-dues-tickets-995549865447">2025 Membership Dues</a></strong> - You can pay for your 2025 dues on line today. The promo code for free webinars is included in your confirmation email of your paid dues. <a href="https://www.eventbrite.com/e/2025-raleigh-engineers-club-membership-dues-tickets-995549865447">Click here to pay now</a> if you are not already registering for this webinar.
+                    </div>
+                    <div class="announcement-item">
+                        <strong>Free Member Webinars</strong> - The Raleigh Engineers Club is continuing to offer free webinars to their members. The non-member webinar fee is $10 + taxes and fees.
+                    </div>
+                </div>
+            </section>
+
+            <section id="membership" class="membership-section">
+                <div class="membership-image">
+                    <a href="http://www.raleighengineersclub.org/REC Membership Application.pdf">
+                        <img src="http://www.raleighengineersclub.org/images/paste38.jpg" alt="Membership Application" class="membership-img">
+                    </a>
+                </div>
+                
+                <div class="membership-content">
+                    <h2>Join the Raleigh Engineers Club!</h2>
+                    <p>Annual membership is only $35. Our goal is to provide interesting and technically-oriented programs to its members, offer licensed members an opportunity for continuing education credits, and award a semester of tuition to a deserving, graduating Raleigh area high school senior choosing engineering as a career at NC State. Membership is available to anyone working in support of the engineering profession. You do not have to be an engineer.</p>
+                    
+                    <div class="membership-cta">
+                        <a href="http://www.raleighengineersclub.org/REC Membership Application.pdf" class="btn btn-primary btn-large" style="color: var(--white) !important;">Download Application</a>
+                        <a href="https://www.eventbrite.com/e/2025-raleigh-engineers-club-membership-dues-tickets-995549865447" class="btn btn-secondary btn-large">Pay Dues Online</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="president-section">
+                <div class="president-info">
+                    <div>George Sharpe, PE</div>
+                    <div>2025 Club President</div>
+                </div>
+                <div class="president-image">
+                    <img src="http://www.raleighengineersclub.org/images/george1.jpg" alt="George Sharpe, PE - 2025 Club President" class="president-img">
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>© 2025 Peak City Web Design</div>
+                <div><a href="mailto:webmaster@raleighengineersclub.org">webmaster@raleighengineersclub.org</a></div>
+                <div>Hosted by DeltaForce Technologies</div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
